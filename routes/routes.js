@@ -6,7 +6,11 @@ let router = express.Router();
 router.get("/", function(req, res){
      connection.query("SELECT * FROM teams", function(err, data){
           if(err){
+               res.status(500).statusCode("Connection error");
+               return;
+          }else if(data.length < 1){
                res.status(404).statusCode("No Data found");
+               return;
           }else{
                let eastTeams = data.filter( o => {return o.confID != 1});
                let westTeams = data.filter( o => {return o.confID == 1});
