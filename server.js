@@ -5,7 +5,7 @@ const routes = require("./routes/routes");
 let PORT  = process.env.PORT || 3000;
 let exphbs = require("express-handlebars");
 
-require("./connection");
+//require("./connection");
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
